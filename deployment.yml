@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: news-headlines
+  labels:
+    app: news-headlines
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: news-headlines
+  template:
+    metadata:
+      labels:
+        app: news-headlines
+    spec:
+      containers:
+      - name: news-headlines
+        image: awslearning/aws-learning-repo:news-headlines-tagVersion
+        ports:
+        - containerPort: 8085
